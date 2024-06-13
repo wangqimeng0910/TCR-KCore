@@ -1,0 +1,22 @@
+binary2list.cpp:
+	transform the binary origin data to non-binary format as the input of TCR
+
+compress.cpp:
+	compress the origin graph data(binary) 
+	input: origin csr_vlist csr_elist
+	output: compress csr_vlist, compress csr_elist, info(vertex_cnt and rule_cnt and vertex_cnt + rule_cnt = compress vlist.size())
+
+filter.cpp
+	filter the rule with given threshold
+	input: compress csr_vlist, compress csr_elist, info
+	output: same as compress.cpp's output but filter the rule
+
+generate.cpp
+	generate non-binary format graph data
+	input: after filter csr_vlist, csr_elist, info
+	output: vertex_cnt rule_cnt depth and vlist elist for every depth graph data
+
+coo2binary.cpp
+	transform the coo graph data to binary format as the input of compress.cpp
+	input: coo format graph file
+	output: binary format graph file
